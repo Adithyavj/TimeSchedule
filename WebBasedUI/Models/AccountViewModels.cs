@@ -49,13 +49,9 @@ namespace WebBasedUI.Models
     public class LoginViewModel
     {
         [Display(Name = "Email")]
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
-
-        [Required]
-        [Display(Name ="User Name")]
-        public string UserName { get; set; }
-
 
         [Required]
         [DataType(DataType.Password)]
@@ -69,12 +65,9 @@ namespace WebBasedUI.Models
     public class RegisterViewModel
     {
         [EmailAddress]
+        [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
-
-        [Required]
-        [Display(Name = "User Name")]
-        public string UserName { get; set; }
 
         [Display(Name = "First Name"), Required]
         [StringLength(100)]
