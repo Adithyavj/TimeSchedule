@@ -1,11 +1,9 @@
 ﻿@model WebBasedUI.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
+    Layout = null;
 }
-
-<h2>@ViewBag.Title.</h2>
-
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@*@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
     <h4>Create a new account.</h4>
@@ -50,4 +48,53 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@
+<html>
+    <head>
+        <link href="~/Content/login.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class="card">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <h2 class="title">Register Now</h2>
+                <br />
+                @*<p class="or"><span></span></p>*@
+                <div class="email-login">
+                    <label for="email"> <b>Email</b></label>
+                    @Html.TextBoxFor(m => m.Email, new
+                    {
+                        @placeholder = "Enter Email",
+                        @type = "text"
+                    })
+                    <label for="firstname"><b>First Name</b></label>
+                    @Html.TextBoxFor(m => m.FirstName, new
+                    {
+                        @placeholder = "First Name",
+                        @type = "text"
+                    })
+                    <label for="lastname"><b>Last Name</b></label>
+                    @Html.TextBoxFor(m => m.LastName, new
+                    {
+                        @placeholder = "Last Name",
+                        @type = "text"
+                    })
+
+                    <label for="psw"><b>Password</b></label>
+                    @Html.PasswordFor(m => m.Password, new
+                    {
+                           @placeholder = "Enter Password"
+                    })
+                    <label for="cfmpsw"><b>Confirm Password</b></label>
+                    @Html.PasswordFor(m => m.ConfirmPassword, new
+                    {
+                           @placeholder = "Confirm Password"
+                    })
+                </div>
+                <button value="Register" type="submit" class="cta-btn">Register</button>
+            }
+        </div>
+    </body>
+</html>
