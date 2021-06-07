@@ -63,6 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\InterviewCall.sql" />
+    <Build Include="dbo\Stored Procedures\spInterviewCall_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spInterviewCall_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spInterviewCall_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spInterviewCall_Delete.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Data.refactorlog" />
